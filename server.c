@@ -14,7 +14,7 @@ int total_clients = 0;
 
 DWORD WINAPI HandleClient(LPVOID lpParam)
 {
-    SOCKET client_socket = (SOCKET)lpParam;
+    SOCKET client_socket = (SOCKET) lpParam;
     char buffer[BUFFER];
     puts("[SERVER] A Client just Connected to the server!");
 
@@ -27,14 +27,14 @@ DWORD WINAPI HandleClient(LPVOID lpParam)
             {
                 puts("[SERVER] A client just Disconnected from the server!");
             } else {
-                printf("[ERROR] Error while receiving data. Error: %d", WSAGetLastError());
+                printf("[ERROR] Error while receiving data. Error: %d\n", WSAGetLastError());
             }
             break;
         }
 
         
         buffer[bytesRead] = '\0';
-        printf("Received: %s\n", buffer);
+        printf("[SERVER] Received: \"%s\"\n", buffer);
 
         for(int i = 0; i < total_clients; i++)
         {
@@ -115,7 +115,6 @@ int main(int argc, char *argv[]){
             {
                 users[total_clients] = client_socket;
                 total_clients++;
-                printf("[SOCKET] Number of clients: %d\n", total_clients);
             } else {
                 puts("Maximum Users(100) Reached.");
                 closesocket(client_socket);

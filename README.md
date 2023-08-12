@@ -1,5 +1,12 @@
 # IRC SERVER/CLIENT implementation in C.
-It is a Terminal Based IRC(in-relay-chat) server and client implementation in C coded by me which currently supports **Windows OS**. It does not supports channel but it is not a basic IRC server/client either.
+It is a Terminal Based Multithreaded IRC(in-relay-chat) server and client implementation in C coded by me which currently supports **Windows OS**. It does not supports channel but it is not a basic IRC server/client either.
+
+# Preview:
+A little bit of formatting needs to be done _cough*_.
+
+![Alt text](image.png)
+![Alt text](image-2.png)
+![Alt text](image-1.png)
 
 # Installation
 

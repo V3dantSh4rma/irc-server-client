@@ -3,6 +3,7 @@
 #include <WinSock2.h>
 #include <string.h>
 #include <Windows.h>
+
 #define BUFFER 1024
 #define MAX_LIM 100
 
@@ -27,7 +28,7 @@ void getBroadcast(LPVOID socket)
         
         buff[bytesRead] = '\0';
         printf("\n[SERVER] Received: \"%s\"\n", buff);
-        printf("\n>> ");
+        printf(">> ");
     }
 }
 
@@ -89,7 +90,7 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    printf("Enter the message to send to the server (type 'exit' to quit)\n");
+    printf("Enter the message to send to the server ('.exit' to quit)\n");
 
     while (1) {
         printf(">> ");
@@ -97,11 +98,8 @@ int main(int argc, char *argv[]){
         
         buffer[strcspn(buffer, "\n")] = '\0';
 
-        if (strcmp(buffer, "exit") == 0) 
+        if (strcmp(buffer, ".exit") == 0) 
         {
-            CloseHandle(thr);
-            closesocket(client_socket);
-            WSACleanup();
             exit(EXIT_SUCCESS);
         }
 
